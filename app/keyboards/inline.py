@@ -157,41 +157,6 @@ async def get_main_menu_keyboard_async(
 _LANGUAGE_DISPLAY_NAMES = {
     'ru': '🇷🇺 Русский',
     'ru-ru': '🇷🇺 Русский',
-    'en': '🇬🇧 English',
-    'en-us': '🇺🇸 English',
-    'en-gb': '🇬🇧 English',
-    'ua': '🇺🇦 Українська',
-    'uk': '🇺🇦 Українська',
-    'uk-ua': '🇺🇦 Українська',
-    'kk': '🇰🇿 Қазақша',
-    'kk-kz': '🇰🇿 Қазақша',
-    'kz': '🇰🇿 Қазақша',
-    'uz': '🇺🇿 Oʻzbekcha',
-    'uz-uz': '🇺🇿 Oʻzbekcha',
-    'tr': '🇹🇷 Türkçe',
-    'tr-tr': '🇹🇷 Türkçe',
-    'pl': '🇵🇱 Polski',
-    'pl-pl': '🇵🇱 Polski',
-    'de': '🇩🇪 Deutsch',
-    'de-de': '🇩🇪 Deutsch',
-    'fr': '🇫🇷 Français',
-    'fr-fr': '🇫🇷 Français',
-    'es': '🇪🇸 Español',
-    'es-es': '🇪🇸 Español',
-    'it': '🇮🇹 Italiano',
-    'it-it': '🇮🇹 Italiano',
-    'pt': '🇵🇹 Português',
-    'pt-pt': '🇵🇹 Português',
-    'pt-br': '🇧🇷 Português',
-    'zh': '🇨🇳 中文',
-    'zh-cn': '🇨🇳 中文 (简体)',
-    'zh-hans': '🇨🇳 中文 (简体)',
-    'zh-tw': '🇹🇼 中文 (繁體)',
-    'zh-hant': '🇹🇼 中文 (繁體)',
-    'vi': '🇻🇳 Tiếng Việt',
-    'vi-vn': '🇻🇳 Tiếng Việt',
-    'fa': '🇮🇷 فارسی',
-    'fa-ir': '🇮🇷 فارسی',
 }
 
 
@@ -446,9 +411,9 @@ def _build_cabinet_main_menu_keyboard(
         info_text = info_cfg.get('labels', {}).get(language, '') or texts.t('MENU_INFO', 'ℹ️ Инфо')
         paired.append(_cabinet_button(info_text, '/info', 'menu_info'))
 
-    # Language selection (stays as callback — not a cabinet section)
-    if settings.is_language_selection_enabled():
-        paired.append(InlineKeyboardButton(text=texts.MENU_LANGUAGE, callback_data='menu_language'))
+    # # Language selection (stays as callback — not a cabinet section)
+    # if settings.is_language_selection_enabled():
+    #     paired.append(InlineKeyboardButton(text=texts.MENU_LANGUAGE, callback_data='menu_language'))
 
     # Lay out in pairs
     for i in range(0, len(paired), 2):
@@ -665,15 +630,15 @@ def get_main_menu_keyboard(
     if settings.ACTIVATE_BUTTON_VISIBLE:
         paired_buttons.append(InlineKeyboardButton(text=settings.ACTIVATE_BUTTON_TEXT, callback_data='activate_button'))
 
-    paired_buttons.append(
-        InlineKeyboardButton(
-            text=texts.t('MENU_INFO', 'ℹ️ Инфо'),
-            callback_data='menu_info',
-        )
-    )
+    # paired_buttons.append(
+    #     InlineKeyboardButton(
+    #         text=texts.t('MENU_INFO', 'ℹ️ Инфо'),
+    #         callback_data='menu_info',
+    #     )
+    # )
 
-    if settings.is_language_selection_enabled():
-        paired_buttons.append(InlineKeyboardButton(text=texts.MENU_LANGUAGE, callback_data='menu_language'))
+    # if settings.is_language_selection_enabled():
+    #     paired_buttons.append(InlineKeyboardButton(text=texts.MENU_LANGUAGE, callback_data='menu_language'))
 
     for i in range(0, len(paired_buttons), 2):
         row = paired_buttons[i : i + 2]

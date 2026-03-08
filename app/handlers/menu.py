@@ -1,5 +1,3 @@
-
-
 import html
 from datetime import UTC, datetime
 from decimal import Decimal
@@ -891,112 +889,112 @@ async def show_public_offer(
     await callback.answer()
 
 
-async def show_language_menu(
-    callback: types.CallbackQuery,
-    db_user: User,
-    db: AsyncSession,
-):
-    if db_user is None:
-        # Пользователь не найден, используем язык по умолчанию
-        texts = get_texts(settings.DEFAULT_LANGUAGE)
-        await callback.answer(
-            texts.t(
-                'USER_NOT_FOUND_ERROR',
-                'Ошибка: пользователь не найден.',
-            ),
-            show_alert=True,
-        )
-        return
+# async def show_language_menu(
+#     callback: types.CallbackQuery,
+#     db_user: User,
+#     db: AsyncSession,
+# ):
+#     if db_user is None:
+#         # Пользователь не найден, используем язык по умолчанию
+#         texts = get_texts(settings.DEFAULT_LANGUAGE)
+#         await callback.answer(
+#             texts.t(
+#                 'USER_NOT_FOUND_ERROR',
+#                 'Ошибка: пользователь не найден.',
+#             ),
+#             show_alert=True,
+#         )
+#         return
 
-    texts = get_texts(db_user.language)
+#     texts = get_texts(db_user.language)
 
-    if not settings.is_language_selection_enabled():
-        await callback.answer(
-            texts.t(
-                'LANGUAGE_SELECTION_DISABLED',
-                '⚙️ Выбор языка временно недоступен.',
-            ),
-            show_alert=True,
-        )
-        return
+#     if not settings.is_language_selection_enabled():
+#         await callback.answer(
+#             texts.t(
+#                 'LANGUAGE_SELECTION_DISABLED',
+#                 '⚙️ Выбор языка временно недоступен.',
+#             ),
+#             show_alert=True,
+#         )
+#         return
 
-    await edit_or_answer_photo(
-        callback=callback,
-        caption=texts.t('LANGUAGE_PROMPT', '🌐 Выберите язык интерфейса:'),
-        keyboard=get_language_selection_keyboard(
-            current_language=db_user.language,
-            include_back=True,
-            language=db_user.language,
-        ),
-        parse_mode='HTML',
-    )
-    await callback.answer()
+#     await edit_or_answer_photo(
+#         callback=callback,
+#         caption=texts.t('LANGUAGE_PROMPT', '🌐 Выберите язык интерфейса:'),
+#         keyboard=get_language_selection_keyboard(
+#             current_language=db_user.language,
+#             include_back=True,
+#             language=db_user.language,
+#         ),
+#         parse_mode='HTML',
+#     )
+#     await callback.answer()
 
 
-async def process_language_change(
-    callback: types.CallbackQuery,
-    db_user: User,
-    db: AsyncSession,
-):
-    if db_user is None:
-        # Пользователь не найден, используем язык по умолчанию
-        texts = get_texts(settings.DEFAULT_LANGUAGE)
-        await callback.answer(
-            texts.t(
-                'USER_NOT_FOUND_ERROR',
-                'Ошибка: пользователь не найден.',
-            ),
-            show_alert=True,
-        )
-        return
+# async def process_language_change(
+#     callback: types.CallbackQuery,
+#     db_user: User,
+#     db: AsyncSession,
+# ):
+#     if db_user is None:
+#         # Пользователь не найден, используем язык по умолчанию
+#         texts = get_texts(settings.DEFAULT_LANGUAGE)
+#         await callback.answer(
+#             texts.t(
+#                 'USER_NOT_FOUND_ERROR',
+#                 'Ошибка: пользователь не найден.',
+#             ),
+#             show_alert=True,
+#         )
+#         return
 
-    texts = get_texts(db_user.language)
+#     texts = get_texts(db_user.language)
 
-    if not settings.is_language_selection_enabled():
-        await callback.answer(
-            texts.t(
-                'LANGUAGE_SELECTION_DISABLED',
-                '⚙️ Выбор языка временно недоступен.',
-            ),
-            show_alert=True,
-        )
-        return
+#     if not settings.is_language_selection_enabled():
+#         await callback.answer(
+#             texts.t(
+#                 'LANGUAGE_SELECTION_DISABLED',
+#                 '⚙️ Выбор языка временно недоступен.',
+#             ),
+#             show_alert=True,
+#         )
+#         return
 
-    selected_raw = (callback.data or '').split(':', 1)[-1]
-    normalized_selected = selected_raw.strip().lower()
+#     selected_raw = (callback.data or '').split(':', 1)[-1]
+#     normalized_selected = selected_raw.strip().lower()
 
-    available_map = {
-        lang.strip().lower(): lang.strip()
-        for lang in settings.get_available_languages()
-        if isinstance(lang, str) and lang.strip()
-    }
+#     available_map = {
+#         lang.strip().lower(): lang.strip()
+#         for lang in settings.get_available_languages()
+#         if isinstance(lang, str) and lang.strip()
+#     }
 
-    if normalized_selected not in available_map:
-        await callback.answer('❌ Unsupported language', show_alert=True)
-        return
+#     if normalized_selected not in available_map:
+#         await callback.answer('❌ Unsupported language', show_alert=True)
+#         return
 
-    resolved_language = available_map[normalized_selected].lower()
+#     resolved_language = available_map[normalized_selected].lower()
 
-    if db_user.language.lower() == normalized_selected:
-        await show_main_menu(
-            callback,
-            db_user,
-            db,
-            skip_callback_answer=True,
-        )
-        await callback.answer(texts.t('LANGUAGE_SELECTED', '🌐 Язык интерфейса обновлен.'))
-        return
+#     if db_user.language.lower() == normalized_selected:
+#         await show_main_menu(
+#             callback,
+#             db_user,
+#             db,
+#             skip_callback_answer=True,
+#         )
+#         await callback.answer(texts.t('LANGUAGE_SELECTED', '🌐 Язык интерфейса обновлен.'))
+#         return
 
-    updated_user = await update_user(db, db_user, language=resolved_language)
-    texts = get_texts(updated_user.language)
+#     updated_user = await update_user(db, db_user, language=resolved_language)
+#     texts = get_texts(updated_user.language)
 
-    await show_main_menu(
-        callback,
-        updated_user,
-        db,
-        skip_callback_answer=True,
-    )
-    await callback.answer(texts.t('LANGUAGE_SELECTED', '🌐 Язык интерфейса обновлен.'))
+#     await show_main_menu(
+#         callback,
+#         updated_user,
+#         db,
+#         skip_callback_answer=True,
+#     )
+#     await callback.answer(texts.t('LANGUAGE_SELECTED', '🌐 Язык интерфейса обновлен.'))
 
 
 async def handle_back_to_menu(callback: types.CallbackQuery, state: FSMContext, db_user: User, db: AsyncSession):
@@ -1442,9 +1440,9 @@ def register_handlers(dp: Dispatcher):
         F.data.startswith('menu_public_offer:'),
     )
 
-    dp.callback_query.register(show_language_menu, F.data == 'menu_language')
+    # dp.callback_query.register(show_language_menu, F.data == 'menu_language')
 
-    dp.callback_query.register(process_language_change, F.data.startswith('language_select:'), StateFilter(None))
+    # dp.callback_query.register(process_language_change, F.data.startswith('language_select:'), StateFilter(None))
 
     dp.callback_query.register(handle_add_traffic, F.data == 'buy_traffic')
 

@@ -1,3 +1,4 @@
+
 from datetime import UTC, datetime
 
 import structlog
@@ -265,14 +266,14 @@ def _get_language_prompt_text() -> str:
     return '🌐 Выберите язык / Choose your language:'
 
 
-async def _prompt_language_selection(message: types.Message, state: FSMContext) -> None:
-    logger.info('🌐 LANGUAGE: Запрос выбора языка для пользователя', from_user_id=message.from_user.id)
+# async def _prompt_language_selection(message: types.Message, state: FSMContext) -> None:
+#     logger.info('🌐 LANGUAGE: Запрос выбора языка для пользователя', from_user_id=message.from_user.id)
 
-    await state.set_state(RegistrationStates.waiting_for_language)
-    await message.answer(
-        _get_language_prompt_text(),
-        reply_markup=get_language_selection_keyboard(),
-    )
+#     await state.set_state(RegistrationStates.waiting_for_language)
+#     await message.answer(
+#         _get_language_prompt_text(),
+#         reply_markup=get_language_selection_keyboard(),
+#     )
 
 
 async def _continue_registration_after_language(
@@ -622,22 +623,9 @@ async def cmd_start(message: types.Message, state: FSMContext, db: AsyncSession,
 
     data = await state.get_data() or {}
     if not data.get('language'):
-        if settings.is_language_selection_enabled():
-            await _prompt_language_selection(message, state)
-            return
-
-        default_language = (
-            (settings.DEFAULT_LANGUAGE or DEFAULT_LANGUAGE)
-            if isinstance(settings.DEFAULT_LANGUAGE, str)
-            else DEFAULT_LANGUAGE
-        )
-        normalized_default = default_language.split('-')[0].lower()
-        data['language'] = normalized_default
+        data['language'] = 'ru'
         await state.set_data(data)
-        logger.info(
-            "🌐 LANGUAGE: выбор языка отключен, устанавливаем язык по умолчанию ''",
-            normalized_default=normalized_default,
-        )
+        logger.info("🌐 LANGUAGE: принудительно установлен русский язык")
 
     await _continue_registration_after_language(
         message=message,
