@@ -162,3 +162,4 @@ async def get_rules_statistics(db: AsyncSession) -> dict:
     except Exception as e:
         logger.error('❌ Ошибка при получении статистики правил', error=e)
         return {'total_active': 0, 'total_all_time': 0, 'languages': {}, 'total_languages': 0, 'error': str(e)}
+
