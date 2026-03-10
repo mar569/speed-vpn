@@ -297,16 +297,16 @@ async def send_error_to_admin_chat(
 
         message_text += f'\n<i>{timestamp}</i>'
 
-        keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[
-                [
-                    InlineKeyboardButton(
-                        text='💬 Сообщить разработчику',
-                        url=DEVELOPER_CONTACT_URL,
-                    ),
-                ],
-            ]
-        )
+        # keyboard = InlineKeyboardMarkup(
+        #     inline_keyboard=[
+        #         [
+        #             InlineKeyboardButton(
+        #                 text='💬 Сообщить разработчику',
+        #                 url=DEVELOPER_CONTACT_URL,
+        #             ),
+        #         ],
+        #     ]
+        # )
 
         message_kwargs: dict = {
             'chat_id': chat_id,
