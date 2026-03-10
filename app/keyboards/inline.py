@@ -455,40 +455,6 @@ def _build_cabinet_main_menu_keyboard(
                     ref_text = section_cfg.get('labels', {}).get(language, '') or texts.MENU_REFERRALS
                     row_buttons.append(_cabinet_button(ref_text, '/referral', 'menu_referrals'))
 
-
-    # # Language selection (stays as callback — not a cabinet section)
-    # if settings.is_language_selection_enabled():
-    #     paired.append(InlineKeyboardButton(text=texts.MENU_LANGUAGE, callback_data='menu_language'))
-
-                case 'support':
-                    if not _is_support_enabled():
-                        continue
-                    if not section_cfg.get('enabled', True):
-                        continue
-                    sup_text = section_cfg.get('labels', {}).get(language, '') or texts.MENU_SUPPORT
-                    row_buttons.append(_cabinet_button(sup_text, '/support', 'menu_support'))
-
-                case 'info':
-                    if not section_cfg.get('enabled', True):
-                        continue
-                    info_text = section_cfg.get('labels', {}).get(language, '') or texts.t('MENU_INFO', 'ℹ️ Инфо')
-                    row_buttons.append(_cabinet_button(info_text, '/info', 'menu_info'))
-
-                case 'language':
-                    if not section_cfg.get('enabled', True):
-                        continue
-                    if not settings.is_language_selection_enabled():
-                        continue
-                    lang_text = section_cfg.get('labels', {}).get(language, '') or texts.MENU_LANGUAGE
-                    resolved_lang_emoji = section_cfg.get('icon_custom_emoji_id') or None
-                    row_buttons.append(
-                        InlineKeyboardButton(
-                            text=lang_text,
-                            callback_data='menu_language',
-                            icon_custom_emoji_id=resolved_lang_emoji,
-                        )
-                    )
-
                 case 'admin':
                     if not is_admin:
                         continue
@@ -498,11 +464,6 @@ def _build_cabinet_main_menu_keyboard(
                         admin_row.append(_cabinet_button(admin_web_text, '/admin', 'admin_panel'))
                     keyboard_rows.append(admin_row)
                     continue  # bypass max_per_row chunking
-
-    # Split collected buttons into keyboard rows respecting max_per_row
-    if row_buttons:
-        for i in range(0, len(row_buttons), max_per_row):
-            keyboard_rows.append(row_buttons[i : i + max_per_row])
 
     # -- Moderator panel (only when not admin — admin row handled above) --
     if is_moderator and not is_admin:
