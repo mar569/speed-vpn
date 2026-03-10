@@ -1,30 +1,30 @@
 # Sample localization for English language.
 # Keys correspond to constants defined in app/localization/texts.py.
 WELCOME: |
-  Welcome to Remnawave Bedolaga Bot!
+  Welcome to Remnawave KIR Bot!
   Update this text to greet users in your own style.
 
 MENU:
-  BALANCE: "Balance"
-  SERVER_STATUS: "Server status"
-  SUBSCRIPTION: "Subscription"
+  BALANCE: 'Balance'
+  SERVER_STATUS: 'Server status'
+  SUBSCRIPTION: 'Subscription'
 
 SERVER_STATUS:
-  TITLE: "📊 <b>Server status</b>"
-  SUMMARY: "Total servers: {total} (online: {online}, offline: {offline})"
-  AVAILABLE: "✅ <b>Online</b>"
-  UNAVAILABLE: "❌ <b>Offline</b>"
-  LATENCY: "{latency} ms"
-  LATENCY_UNKNOWN: "no data"
-  OFFLINE: "no response"
-  NO_SERVERS: "No server data available."
-  PAGINATION: "Page {current} of {total}"
-  PREV_PAGE: "⬅️ Back"
-  NEXT_PAGE: "Next ➡️"
-  REFRESH: "🔄 Refresh"
-  ERROR_SHORT: "Failed to fetch data"
-  NOT_CONFIGURED: "Feature is not available."
-  UPDATED_AT: "⏱ Updated at: {time}"
+  TITLE: '📊 <b>Server status</b>'
+  SUMMARY: 'Total servers: {total} (online: {online}, offline: {offline})'
+  AVAILABLE: '✅ <b>Online</b>'
+  UNAVAILABLE: '❌ <b>Offline</b>'
+  LATENCY: '{latency} ms'
+  LATENCY_UNKNOWN: 'no data'
+  OFFLINE: 'no response'
+  NO_SERVERS: 'No server data available.'
+  PAGINATION: 'Page {current} of {total}'
+  PREV_PAGE: '⬅️ Back'
+  NEXT_PAGE: 'Next ➡️'
+  REFRESH: '🔄 Refresh'
+  ERROR_SHORT: 'Failed to fetch data'
+  NOT_CONFIGURED: 'Feature is not available.'
+  UPDATED_AT: '⏱ Updated at: {time}'
 
 RULES_TEXT: |
   Remnawave service rules:
@@ -39,5 +39,4 @@ PAYMENT_METHODS_NONE_AVAILABLE: |
   Please try again later.
 
   Choose a top-up option:
-SUPPORT_TOPUP_DISABLED: "Top-ups via support are disabled. Please use another payment method."
-
+SUPPORT_TOPUP_DISABLED: 'Top-ups via support are disabled. Please use another payment method.'
