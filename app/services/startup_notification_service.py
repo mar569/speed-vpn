@@ -245,7 +245,7 @@ class StartupNotificationService:
             #                 text='Поставить звезду',
             #                 url=GITHUB_BOT_URL,
             #             ),
-            #         ],
+            #         ],п
             #         [
             #             InlineKeyboardButton(
             #                 text='Вебкабинет',
@@ -257,7 +257,7 @@ class StartupNotificationService:
             #                 text='Сообщество',
             #                 url=COMMUNITY_URL,
             #             ),
-            #         ],
+            #         ],п
             #     ]
             # )
 
