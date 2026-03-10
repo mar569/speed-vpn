@@ -327,3 +327,4 @@ async def send_error_to_admin_chat(
     except Exception as e:
         logger.error('Ошибка отправки уведомления об ошибке', e=e, _admin_notified=True)
         return False
+

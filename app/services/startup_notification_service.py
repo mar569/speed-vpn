@@ -429,17 +429,17 @@ async def send_crash_notification(bot: Bot, error: Exception, traceback_str: str
 
         message_text += f'\n<i>{timestamp}</i>'
 
-        # Кнопка для связи с разработчиком
-        keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[
-                [
-                    InlineKeyboardButton(
-                        text='💬 Сообщить разработчику',
-                        url=DEVELOPER_CONTACT_URL,
-                    ),
-                ],
-            ]
-        )
+        # # Кнопка для связи с разработчиком
+        # keyboard = InlineKeyboardMarkup(
+        #     inline_keyboard=[
+        #         [
+        #             InlineKeyboardButton(
+        #                 text='💬 Сообщить разработчику',
+        #                 url=DEVELOPER_CONTACT_URL,
+        #             ),
+        #         ],
+        #     ]
+        # )
 
         message_kwargs: dict = {
             'chat_id': chat_id,
