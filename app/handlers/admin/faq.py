@@ -51,7 +51,7 @@ async def _build_overview(
 
     description = texts.t(
         'ADMIN_FAQ_DESCRIPTION',
-        'FAQ отображается в разделе «Инфо».',
+        'FAQ отображается в разделе «Информация».',
     )
 
     if setting and not setting.is_enabled:

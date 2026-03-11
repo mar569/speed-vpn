@@ -42,7 +42,7 @@ async def _build_overview(
 
     description = texts.t(
         'ADMIN_PRIVACY_POLICY_DESCRIPTION',
-        'Политика конфиденциальности отображается в разделе «Инфо».',
+        'Политика конфиденциальности отображается в разделе «Информация».',
     )
 
     status_text = texts.t(

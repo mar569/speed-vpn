@@ -42,7 +42,7 @@ async def _build_overview(
 
     description = texts.t(
         'ADMIN_PUBLIC_OFFER_DESCRIPTION',
-        'Публичная оферта отображается в разделе «Инфо».',
+        'Публичная оферта отображается в разделе «Информация».',
     )
 
     status_text = texts.t(
