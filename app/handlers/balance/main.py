@@ -683,7 +683,6 @@ async def request_support_topup(callback: types.CallbackQuery, db_user: User):
 ⏰ Время обработки: 1-24 часа
 
 <b>Доступные способы:</b>
-• Криптовалюта
 • Переводы между банками
 • Другие платежные системы
 """

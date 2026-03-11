@@ -671,7 +671,7 @@ def get_main_menu_keyboard(
 
     paired_buttons.append(
         InlineKeyboardButton(
-            text=texts.t('MENU_INFO', 'ℹ️ Инфо'),
+            text=texts.t('MENU_INFO', 'ℹ️ Информация'),
             callback_data='menu_info',
         )
     )
