@@ -154,7 +154,7 @@ async def _build_notification_preview_message(language: str, notification_type: 
             'TRIAL_CHANNEL_UNSUBSCRIBED',
             (
                 '🚫 <b>Доступ приостановлен</b>\n\n'
-                'Мы не нашли вашу подписку на наш канал, поэтому тестовая подписка отключена.\n\n'
+                'Мы не нашли вашу подписку на наш канал, поэтому пробный период отключен.\n\n'
                 'Подпишитесь на канал и нажмите «{check_button}», чтобы вернуть доступ.'
             ),
         )

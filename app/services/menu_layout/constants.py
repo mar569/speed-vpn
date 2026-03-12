@@ -225,7 +225,7 @@ DEFAULT_MENU_CONFIG: dict[str, Any] = {
         'info': {
             'type': 'builtin',
             'builtin_id': 'info',
-            'text': {'ru': 'ℹ️ Инфо', 'en': 'ℹ️ Info'},
+            'text': {'ru': 'ℹ️ Информация', 'en': 'ℹ️ Information'},
             'action': 'menu_info',
             'enabled': True,
             'visibility': 'all',
@@ -362,7 +362,7 @@ BUILTIN_BUTTONS_INFO: list[dict[str, Any]] = [
     },
     {
         'id': 'info',
-        'default_text': {'ru': 'ℹ️ Инфо', 'en': 'ℹ️ Info'},
+        'default_text': {'ru': 'ℹ️ Информация', 'en': 'ℹ️ Infomation'},
         'callback_data': 'menu_info',
         'default_conditions': None,
         'supports_dynamic_text': False,

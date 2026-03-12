@@ -1207,7 +1207,7 @@ async def activate_trial(callback: types.CallbackQuery, db_user: User, db: Async
                 reply_markup=get_back_keyboard(db_user.language),
             )
 
-        logger.info('✅ Активирована тестовая подписка для пользователя', telegram_id=db_user.telegram_id)
+        logger.info('✅ Активирован пробный период для пользователя', telegram_id=db_user.telegram_id)
 
     except Exception as e:
         logger.error('Ошибка активации триала', error=e)

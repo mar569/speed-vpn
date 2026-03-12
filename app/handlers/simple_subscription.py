@@ -147,7 +147,7 @@ async def start_simple_subscription_purchase(
             )
             trial_notice = texts.t(
                 key,
-                'ℹ️ У вас уже есть триальная подписка. Она истекает через {days} дн.',
+                'ℹ️ У вас уже есть пробная подписка. Она истекает через {days} дн.',
             ).format(days=days_left)
 
     server_label = _get_simple_subscription_server_label(

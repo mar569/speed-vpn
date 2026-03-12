@@ -310,7 +310,7 @@ class PromoCodeService:
 
                 await self.subscription_service.create_remnawave_user(db, trial_subscription)
 
-                effects.append(f'🎁 Активирована тестовая подписка на {trial_days} дней')
+                effects.append(f'🎁 Активирован пробный период на {trial_days} дней')
                 logger.info(
                     '✅ Создана триал подписка для пользователя на дней',
                     _format_user_log=self._format_user_log(user),

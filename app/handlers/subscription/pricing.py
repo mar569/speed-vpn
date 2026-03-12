@@ -432,7 +432,7 @@ async def get_subscription_info_text(subscription, texts, db_user, db: AsyncSess
     subscription_url = getattr(subscription, 'subscription_url', None) or 'Генерируется...'
 
     if subscription.is_trial:
-        status_text = '🎁 Тестовая'
+        status_text = '🎁 Пробный период'
         type_text = 'Триал'
     else:
         if subscription.is_active:

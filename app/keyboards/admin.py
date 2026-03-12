@@ -201,7 +201,7 @@ def get_admin_settings_submenu_keyboard(language: str = 'ru') -> InlineKeyboardM
             ],
             [
                 InlineKeyboardButton(
-                    text=_t(texts, 'ADMIN_SETTINGS_PRIVACY_POLICY', '🛡️ Политика конф.'),
+                    text=_t(texts, 'ADMIN_SETTINGS_PRIVACY_POLICY', '🛡️ Политика конфиденциальности'),
                     callback_data='admin_privacy_policy',
                 )
             ],
