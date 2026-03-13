@@ -656,10 +656,10 @@ AVAILABLE_CALLBACKS: list[dict[str, Any]] = [
     },
     {
         'callback_data': 'my_tickets',
-        'name': 'Мои тикеты',
+        'name': 'Мои обращения',
         'category': 'support',
         'icon': '📋',
-        'text': {'ru': '📋 Мои тикеты', 'en': '📋 My tickets'},
+        'text': {'ru': '📋 Мои обращения', 'en': '📋 My tickets'},
     },
     # Триал
     {
