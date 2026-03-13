@@ -1232,8 +1232,8 @@ class MonitoringService:
 
             keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
-                    [build_miniapp_or_callback_button(text='💎 Купить подписку', callback_data='menu_buy')],
-                    [build_miniapp_or_callback_button(text='💳 Пополнить баланс', callback_data='balance_topup')],
+                    [build_miniapp_or_callback_button(text='Купить доступ', callback_data='menu_buy')],
+                    [build_miniapp_or_callback_button(text='Пополнить баланс', callback_data='balance_topup')],
                 ]
             )
 

@@ -399,9 +399,11 @@ async def show_subscription_info(callback: types.CallbackQuery, db_user: User, d
         # Для суточных тарифов другой шаблон без "Действует до" и "Осталось"
         message_template = texts.t(
             'SUBSCRIPTION_DAILY_OVERVIEW_TEMPLATE',
-            """👤 {full_name}
+            """🌟 <b>ЛИЧНЫЙ КАБИНЕТ</b> 🌟
+        👤 {full_name}
 💰 Баланс: {balance}
-📱 Подписка: {status_emoji} {status_display}{warning}{tariff_info_block}
+📱 <b>ПОДПИСКА</b>
+ {status_emoji} {status_display}{warning}{tariff_info_block}
 
 📱 Информация о подписке
 🎭 Тип: {subscription_type}
@@ -412,9 +414,11 @@ async def show_subscription_info(callback: types.CallbackQuery, db_user: User, d
     else:
         message_template = texts.t(
             'SUBSCRIPTION_OVERVIEW_TEMPLATE',
-            """👤 {full_name}
+            """ 🌟 <b>ЛИЧНЫЙ КАБИНЕТ</b> 🌟
+            👤 {full_name}
 💰 Баланс: {balance}
-📱 Подписка: {status_emoji} {status_display}{warning}{tariff_info_block}
+📱  <b>ПОДПИСКА</b>
+ {status_emoji} {status_display}{warning}{tariff_info_block}
 
 📱 Информация о подписке
 🎭 Тип: {subscription_type}
@@ -4258,7 +4262,7 @@ async def handle_simple_subscription_purchase(
     texts = get_texts(db_user.language)
 
     if not settings.SIMPLE_SUBSCRIPTION_ENABLED:
-        await callback.answer('❌ Простая покупка подписки временно недоступна', show_alert=True)
+        await callback.answer('❌ Покупка подписки временно недоступна', show_alert=True)
         return
 
     # Определяем ограничение по устройствам для текущего режима
@@ -4326,7 +4330,7 @@ async def handle_simple_subscription_purchase(
     if user_balance_kopeks >= price_kopeks:
         # Если баланс достаточный, предлагаем оплатить с баланса
         simple_lines = [
-            '⚡ <b>Простая покупка подписки</b>',
+            '⚡ <b>Покупка подписки</b>',
             '',
             f'📅 Период: {subscription_params["period_days"]} дней',
         ]
@@ -4366,7 +4370,7 @@ async def handle_simple_subscription_purchase(
     else:
         # Если баланс недостаточный, предлагаем внешние способы оплаты
         simple_lines = [
-            '⚡ <b>Простая покупка подписки</b>',
+            '⚡ <b>Покупка подписки</b>',
             '',
             f'📅 Период: {subscription_params["period_days"]} дней',
         ]
@@ -4494,7 +4498,7 @@ async def _extend_existing_subscription(
         db_user,
         price_kopeks,
         f'Продление подписки на {period_days} дней',
-        consume_promo_offer=False,  # Простая покупка не использует промо-скидки
+        consume_promo_offer=False,  # Покупка не использует промо-скидки
         mark_as_paid_subscription=True,
     )
 

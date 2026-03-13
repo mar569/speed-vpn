@@ -84,7 +84,7 @@ CATEGORY_GROUP_METADATA: dict[str, dict[str, object]] = {
     },
     'subscriptions': {
         'title': '📅 Подписки и цены',
-        'description': 'Тарифы, простая покупка, периоды, лимиты трафика и автопродление.',
+        'description': 'Тарифы, покупка, периоды, лимиты трафика и автопродление.',
         'icon': '📅',
         'categories': (
             'SUBSCRIPTIONS_CORE',

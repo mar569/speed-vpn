@@ -158,7 +158,7 @@ async def start_simple_subscription_purchase(
     show_devices = settings.is_devices_selection_enabled()
 
     message_lines = [
-        '⚡ <b>Простая покупка подписки</b>',
+        '⚡ <b>Покупка подписки</b>',
         '',
         f'📅 Период: {subscription_params["period_days"]} дней',
     ]
@@ -873,7 +873,7 @@ async def handle_simple_subscription_payment_method(
                 chat_id=callback.from_user.id,
                 title=f'Подписка на {subscription_params["period_days"]} дней',
                 description=(
-                    f'Простая покупка подписки\n'
+                    f'Покупка подписки\n'
                     f'Период: {subscription_params["period_days"]} дней\n'
                     f'Устройства: {subscription_params["device_limit"]}\n'
                     f'Трафик: {stars_traffic_label}'

@@ -1258,7 +1258,7 @@ def get_subscription_period_keyboard(
 
         keyboard.append([InlineKeyboardButton(text=button_text, callback_data=f'period_{days}')])
 
-    # Кнопка "Простая покупка" была убрана из выбора периода подписки
+    # Кнопка "Покупка" была убрана из выбора периода подписки
 
     keyboard.append([InlineKeyboardButton(text=texts.BACK, callback_data='back_to_menu')])
 
