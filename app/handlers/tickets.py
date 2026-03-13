@@ -346,12 +346,12 @@ async def show_my_tickets(callback: types.CallbackQuery, db_user: User, db: Asyn
                 inline_keyboard=[
                     [
                         types.InlineKeyboardButton(
-                            text=texts.t('CREATE_TICKET_BUTTON', '🎫 Создать тикет'), callback_data='create_ticket'
+                            text=texts.t('CREATE_TICKET_BUTTON', '📋 Создать обращение'), callback_data='create_ticket'
                         )
                     ],
                     [
                         types.InlineKeyboardButton(
-                            text=texts.t('VIEW_CLOSED_TICKETS', '🟢 Закрытые тикеты'), callback_data='my_tickets_closed'
+                            text=texts.t('VIEW_CLOSED_TICKETS', '🟢 Закрытые обращения'), callback_data='my_tickets_closed'
                         )
                     ],
                     [types.InlineKeyboardButton(text=texts.BACK, callback_data='menu_support')],

@@ -96,7 +96,7 @@ class BotConfigurationService:
         'WATA': '💠 Wata',
         'EXTERNAL_ADMIN': '🛡️ Внешняя админка',
         'SUBSCRIPTIONS_CORE': '📅 Подписки и лимиты',
-        'SIMPLE_SUBSCRIPTION': '⚡ Покупка',
+        'SIMPLE_SUBSCRIPTION': '💳 Купить доступ',
         'PERIODS': '📆 Периоды подписок',
         'SUBSCRIPTION_PRICES': '💵 Стоимость тарифов',
         'TRAFFIC': '📊 Трафик',

@@ -1773,12 +1773,12 @@ def get_support_keyboard(language: str = DEFAULT_LANGUAGE) -> InlineKeyboardMark
         rows.append(
             [
                 InlineKeyboardButton(
-                    text=texts.t('CREATE_TICKET_BUTTON', '🎫 Создать тикет'), callback_data='create_ticket'
+                    text=texts.t('CREATE_TICKET_BUTTON', '📋 Создать обращение'), callback_data='create_ticket'
                 )
             ]
         )
         rows.append(
-            [InlineKeyboardButton(text=texts.t('MY_TICKETS_BUTTON', '📋 Мои тикеты'), callback_data='my_tickets')]
+            [InlineKeyboardButton(text=texts.t('MY_TICKETS_BUTTON', '📋 Мои обращения'), callback_data='my_tickets')]
         )
     # Direct contact
     if contact_enabled and settings.get_support_contact_url():

@@ -649,10 +649,10 @@ AVAILABLE_CALLBACKS: list[dict[str, Any]] = [
     # Поддержка
     {
         'callback_data': 'create_ticket',
-        'name': 'Создать тикет',
+        'name': 'Создать обращение',
         'category': 'support',
         'icon': '✏️',
-        'text': {'ru': '✏️ Создать тикет', 'en': '✏️ Create ticket'},
+        'text': {'ru': '✏️ Создать обращение', 'en': '✏️ Create ticket'},
     },
     {
         'callback_data': 'my_tickets',
